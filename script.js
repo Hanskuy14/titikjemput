@@ -34,39 +34,73 @@ const TIMES = [
 ];
 
 
-/* ---------- 30 NPCs ---------- */
+/* ---------- 30 NPCs (with mood + destination) ---------- */
 const NPCS = [
-  { name: "Emak Dasteran",         emoji: "👩",   line: "Mas! Mas ojol! Cepetan ya, masakan gue gosong nih kalo lama!" },
-  { name: "Anak Kos Akhir Bulan",  emoji: "🧑‍🎓", line: "bang sumpah duitnya pas-pasan, tolong bgt ya bang... 😭" },
-  { name: "Mbak SCBD",             emoji: "💅",   line: "OMG which is like, literally aku udah nunggu, you know? It's giving slow service deh." },
-  { name: "Bocil Epep",            emoji: "👦",   line: "BANG BURUAN GW LAGI PUSH RANK ML JANGAN AFK BANG PLEASE" },
-  { name: "Jamet Kuproy",          emoji: "🏍️",   line: "Yo bro, gas pol ya. Tadi gw balapan ama bro Riko, kalah tipis." },
-  { name: "Kang Paket Rival",      emoji: "📦",   line: "Eh broo, kompetitor sih tapi tetep brotherhood ya. Jangan disenggol." },
-  { name: "Bapak Poskamling",      emoji: "👴",   line: "Wah mas ojol, tau ga politik sekarang... duduk dulu sini, tak critain." },
-  { name: "Netizen Julid",         emoji: "📱",   line: "Lama amat sih?? Awas ya kalo gak bener, gue viralin di X. Follower gue banyak." },
-  { name: "Suami Siaga",           emoji: "🤵",   line: "MAAAS BURUAN ISTRI GUE MAU LAHIRAN GAK BOONG MAS PLEASE" },
-  { name: "Cewek Galau",           emoji: "😢",   line: "(huhu) bang... pacar aku selingkuh... antarin aku jauh-jauh dari sini..." },
-  { name: "Orang Mabuk Amer",      emoji: "🥴",   line: "bnag... gw mw plng... rmh gw d ujng dnia tau gak..." },
-  { name: "Kang Ghosting",         emoji: "👻",   line: "[seen 5 menit yang lalu — pin lokasi gak jelas]" },
-  { name: "Nenek Baik Hati",       emoji: "👵",   line: "Cu, makasih ya udah datang. Hati-hati di jalan, jangan ngebut nak." },
-  { name: "Penipu OVO/Dana",       emoji: "🕵️",   line: "Halo bang, dari OVO. Bisa minta kode OTP buat verifikasi orderan?" },
-  { name: "Pengusaha Buru-Buru",   emoji: "💼",   line: "Bro, ke bandara 30 menit. Telat lu yang tanggung jawab. Tip 50k kalo ngebut." },
-  { name: "Wisatawan Nyasar",      emoji: "🧳",   line: "Mas, saya dari Medan. Jalan Sudirman dimana ya? Maps saya gak akurat." },
-  { name: "Remaja Bucin",          emoji: "💕",   line: "bang pelan2 ya, gw kabur dari rumah ketemuan ama pacar. jangan bilang siapa2." },
-  { name: "Kang Pindahan",         emoji: "📦",   line: "Bang, motor lu kuat angkut kulkas ga? Deket kok. Deket banget. Sumpah." },
-  { name: "Selebgram Pansos",      emoji: "📸",   line: "Mas, jangan ngomong ya, lagi live IG. Konten 'naik ojol pertama kali'." },
-  { name: "Orang Kesurupan",       emoji: "👹",   line: "HOEEE... aku bukan dia... aku dari kerajaan bawah tanah... antar aku ke selatan..." },
-  { name: "Intel Nyamar",          emoji: "🕶️",   line: "Bro, lu ojol lama ya? Daerah sini banyak narkoba ga? Tanya doang sih." },
-  { name: "Ibu Hamil Tua",         emoji: "🤰",   line: "Mas, pelan-pelan ya. Sembilan bulan nih, hindari polisi tidur ya mas." },
-  { name: "Bule Nyasar",           emoji: "🧔",   line: "Hello mister, I want go to... uhh... 'jalan tikus'? Is fast way, yes yes?" },
-  { name: "Tukang Sayur",          emoji: "🥬",   line: "Mas, bawa keranjang sayur ya. Maaf agak amis, ada ikan asin sekarung." },
-  { name: "Penumpang Pulas",       emoji: "😴",   line: "zzz... (tertidur sambil duduk nunggu di pinggir jalan)" },
-  { name: "Mahasiswa PPL",         emoji: "🎓",   line: "Kak, bawa poster A0 dua biji ya. Buat presentasi. Jangan kelipet please." },
-  { name: "Pelanggan VIP",         emoji: "🤵‍♂️", line: "Helmnya udah disanitasi belum? Tolong dilap sekali lagi. Alergi debu saya." },
-  { name: "Pengamen Punk",         emoji: "🎸",   line: "Oi bro, gw punya duit receh full. Cukup gak buat ojek? Receh keras nih." },
-  { name: "Tukang Parkir Gaib",    emoji: "👷",   line: "Kiri kiri kiri terus mas. *padahal jalan lurus doang* Dua rebu ya bang." },
-  { name: "Mantan Pacar",          emoji: "💔",   line: "...lho? Ko kamu? Ojol? Eh... antar ke rumah dulu deh. Awkward bgt anjir." }
+  { name: "Emak Dasteran",         emoji: "👩",   mood: "demanding", dest: "Pasar Senen beli daging",          line: "Mas! Cepetan ya, gue mau ke Pasar Senen, masakan di rumah keburu gosong!" },
+  { name: "Anak Kos Akhir Bulan",  emoji: "🧑‍🎓", mood: "polos",     dest: "warung nasi padang depan kampus",  line: "bang ke warung padang depan kampus ya, sumpah duitnya pas-pasan tolong bgt 😭" },
+  { name: "Mbak SCBD",             emoji: "💅",   mood: "demanding", dest: "Senayan City buat brunch",         line: "Ke Senci ya bang, brunch sama temen. Literally I've been waiting forever, you know?" },
+  { name: "Bocil Epep",            emoji: "👦",   mood: "panik",     dest: "warnet Cyber Gaming",              line: "BANG WARNET CYBER GAMING JANGAN LAMA GW PUSH RANK ML PLEASE" },
+  { name: "Jamet Kuproy",          emoji: "🏍️",   mood: "chill",     dest: "tongkrongan kolong fly-over",      line: "Yo bro, ke flyover ya, ada bro Riko nungguin balapan lanjutan." },
+  { name: "Kang Paket Rival",      emoji: "📦",   mood: "chill",     dest: "gudang ekspedisi",                 line: "Bro, ke gudang ekspedisi ya. Kompetitor sih tapi tetep brotherhood lah." },
+  { name: "Bapak Poskamling",      emoji: "👴",   mood: "polos",     dest: "rumah Pak RT",                     line: "Ke rumah Pak RT ya mas, mau diskusi politik. Mas ikut nimbrung yuk?" },
+  { name: "Netizen Julid",         emoji: "📱",   mood: "demanding", dest: "kantor influencer agency",         line: "Ke kantor agency, jangan lama. Awas viral di X kalo lelet, follower gue 200k." },
+  { name: "Suami Siaga",           emoji: "🤵",   mood: "panik",     dest: "RS Bersalin Bunda",                line: "MAAAS RS BUNDA CEPET ISTRI GUE MAU LAHIRAN BUKA 5 MASS!" },
+  { name: "Cewek Galau",           emoji: "😢",   mood: "panik",     dest: "kosan temennya buat curhat",       line: "(huhu) bang... antar ke kosan Tania ya... pacar aku selingkuh bang..." },
+  { name: "Orang Mabuk Amer",      emoji: "🥴",   mood: "panik",     dest: "rumah, alamat ngaco",              line: "bnag... gw mw plng... rmh gw d ujng dnia... mungkin... gtau jg sih..." },
+  { name: "Kang Ghosting",         emoji: "👻",   mood: "sus",       dest: "pin lokasi (gak jelas)",           line: "[seen] ...pin nya muter-muter, gak respon chat 5 menit." },
+  { name: "Nenek Baik Hati",       emoji: "👵",   mood: "polos",     dest: "Posyandu Lansia",                  line: "Cu, ke Posyandu ya. Pelan-pelan saja, tidak usah ngebut nak." },
+  { name: "Penipu OVO/Dana",       emoji: "🕵️",   mood: "sus",       dest: "alamat fiktif Jakbar",             line: "Halo bang, saya dari OVO. Sebelum jalan, minta kode OTP dulu buat verifikasi." },
+  { name: "Pengusaha Buru-Buru",   emoji: "💼",   mood: "panik",     dest: "Bandara Soetta T3",                line: "Bro, T3 Soetta 30 menit! Telat lu tanggung. Tip 50k kalo ngebut." },
+  { name: "Wisatawan Nyasar",      emoji: "🧳",   mood: "polos",     dest: "hotel di Sudirman",                line: "Mas, hotel di Sudirman ya. Saya dari Medan, Maps saya nge-blank." },
+  { name: "Remaja Bucin",          emoji: "💕",   mood: "sus",       dest: "kafe Mojok tempat ketemuan",       line: "bang pelan2 ke kafe Mojok ya, gw kabur dari rumah. jangan bilang ortu plis." },
+  { name: "Kang Pindahan",         emoji: "📦",   mood: "chill",     dest: "kosan baru di gang sempit",        line: "Bang, ke kosan baru gw ya. Bawa kulkas dikit, deket kok. Deket banget. Sumpah." },
+  { name: "Selebgram Pansos",      emoji: "📸",   mood: "demanding", dest: "studio konten di Senopati",        line: "Studio Senopati ya. Jangan ngomong, lagi live IG. Konten 'first time naik ojol'." },
+  { name: "Orang Kesurupan",       emoji: "👹",   mood: "mistik",    dest: "selatan, ke arah kerajaan gaib",   line: "HOEEE... antar aku ke selatan... ke kerajaan bawah tanah... aku bukan dia..." },
+  { name: "Intel Nyamar",          emoji: "🕶️",   mood: "sus",       dest: "lokasi pengintaian rahasia",       line: "Bro, alamat ini ya. Btw daerah sini banyak narkoba gak? Tanya doang kok." },
+  { name: "Ibu Hamil Tua",         emoji: "🤰",   mood: "polos",     dest: "klinik kandungan Bu Sari",         line: "Mas, ke klinik Bu Sari ya. Pelan-pelan, sembilan bulan nih, hindari polisi tidur." },
+  { name: "Bule Nyasar",           emoji: "🧔",   mood: "polos",     dest: "Pantai Anyer (jaraknya 3 jam)",    line: "Hello mister! Take me to Pantai Anyer please, fast way yes? Jalan tikus?" },
+  { name: "Tukang Sayur",          emoji: "🥬",   mood: "chill",     dest: "Pasar Subuh",                      line: "Mas, ke pasar subuh ya bawa keranjang sayur. Maaf amis ikan asin sekarung." },
+  { name: "Penumpang Pulas",       emoji: "😴",   mood: "chill",     dest: "rumah (alamat lupa, tidur)",       line: "zzz... bang... rumah... zzz... (tertidur, alamat di pin gak jelas)" },
+  { name: "Mahasiswa PPL",         emoji: "🎓",   mood: "polos",     dest: "kampus, ruang sidang skripsi",     line: "Kak, ke kampus ruang sidang ya, bawa poster A0 dua. Jangan kelipet please." },
+  { name: "Pelanggan VIP",         emoji: "🤵‍♂️", mood: "demanding", dest: "Hotel Indonesia Kempinski",        line: "Hotel Indonesia ya. Helm udah disanitasi? Lap sekali lagi, alergi debu saya." },
+  { name: "Pengamen Punk",         emoji: "🎸",   mood: "chill",     dest: "lampu merah Bundaran HI",          line: "Oi bro, lampu merah HI ya. Bayar receh full, total cuk gw belom hitung sih." },
+  { name: "Tukang Parkir Gaib",    emoji: "👷",   mood: "mistik",    dest: "depan minimarket samping",         line: "Kiri kiri kiri mas... *padahal lurus aja* Sini sini, dua rebu ya bang." },
+  { name: "Mantan Pacar",          emoji: "💔",   mood: "mistik",    dest: "rumah... ibumu",                   line: "...lho? Ko kamu? Ojol? Eh... antar ke rumah dulu deh. Awkward banget anjir." }
 ];
+
+/* ---------- NPC mood reactions ---------- */
+const MOODS = {
+  demanding: {
+    event:   ["Astaga, kenapa harus sekarang sih?!", "Aduh cepetan dong, gue gak punya waktu!", "Hellooo? Why now? Annoying banget."],
+    good:    ["Oke deh, masih bisa dimaafin lah.", "Lumayan, gak sebodoh yang gue kira.", "Yaudah cukup, jangan diulang lagi ya."],
+    bad:     ["YA AMPUN PARAH BGT JADI OJOL!", "Gue komplen ke aplikasi nih awas!", "Niat narik gak sih lo?! Capek deh!"]
+  },
+  panik: {
+    event:   ["WADUH GIMANA NIH BANGGG?!", "ANJIR JANTUNG GW BANG!", "GAWAT GAWAT GAWAT MAS!"],
+    good:    ["FUH AMAN MAS! THANK YOU BANG!", "GACOR! MANTAP BENERAN BANG!", "WUIH BERESS! GOKIL LU MAS!"],
+    bad:     ["BANG GIMANAA SIH PARAH BGT!!", "YAH ANCURRR BANG, JADI GINI!", "ANJIRRR ZONK BENERAN BANG!"]
+  },
+  chill: {
+    event:   ["Wah, gimana nih situasinya bro?", "Hmm, gokil juga ya lika-likunya.", "Tenang aja sih, santai bro."],
+    good:    ["Mantap broo, gas terus pro player.", "GG bro, smooth banget eksekusinya.", "Aman, lanjut bro. Solid."],
+    bad:     ["Yah, sayang banget bro.", "Bocor itu mah, sayang ngab.", "Hmm, kurang gacor sih bro."]
+  },
+  polos: {
+    event:   ["Astaghfirullah, gimana ya pak?", "Aduh maaf saya bingung pak...", "Ya ampun, kok bisa begini ya."],
+    good:    ["Alhamdulillah, terima kasih nak.", "Wah baik banget mas, jazakumullah.", "Senang banget nih, semoga berkah."],
+    bad:     ["Ya ampun, kecewa saya...", "Astaghfirullah... yaudah deh.", "Saya doakan dapat hidayah ya mas."]
+  },
+  sus: {
+    event:   ["Hmmm... lo gak panik kan?", "Tenang... ini biasa aja kok...", "Eh... jangan macam-macam ya..."],
+    good:    ["Nice nice, lo bisa diandelin.", "Mantap, gw inget muka lo.", "Lo bisa diajak bisnis nih bro."],
+    bad:     ["Hmm.. mencurigakan banget lo...", "Awas ya kalo ketemu lagi...", "Lo ngapain sih sebenernya..."]
+  },
+  mistik: {
+    event:   ["...Saya sudah tahu ini akan terjadi...", "...Pertanda buruk ini, ngab...", "...Hawa-hawanya tidak enak..."],
+    good:    ["...Garis tangan lu memang panjang...", "...Bagus, leluhur ridha denganmu...", "...Selamat, terhindar dari sial..."],
+    bad:     ["...Sudah kuduga karma akan datang...", "...Hari ini sial menyertai mu...", "...Sebaiknya mandi kembang dulu..."]
+  }
+};
 
 
 /* ---------- 45 SCENARIOS ---------- */
@@ -539,9 +573,15 @@ const Game = {
     $('chatName').textContent = npc.name;
     $('chatStatus').textContent = `online — ${weather.label.replace(/^\S+\s/,'')} / ${time.label.replace(/^\S+\s/,'')}`;
     this.appendChat('event', `📍 Order #${this.state.orderCount + 1} — ${weather.label} • ${time.label}`);
+    this.appendChat('system', `🛵 Jemput <b>${npc.name}</b> → tujuan: <i>${npc.dest}</i>`);
     this.appendChat('npc', `<b>${npc.name}:</b> ${npc.line}`);
     setTimeout(() => {
+      this.appendChat('system', `🚦 Di tengah perjalanan...`);
       this.appendChat('event', `⚠️ <b>${scenario.title}</b><br>${scenario.event}`);
+      // NPC reacts to event in their mood
+      const moodSet = MOODS[npc.mood] || MOODS.chill;
+      const reaction = pick(moodSet.event);
+      this.appendChat('npc', `<b>${npc.name}:</b> ${reaction}`);
       // Show choices
       $('choiceA').innerHTML = `<span class="choice-tag">A</span>${scenario.A.label}`;
       $('choiceB').innerHTML = `<span class="choice-tag">B</span>${scenario.B.label}`;
@@ -551,7 +591,7 @@ const Game = {
       $('btnAskAI').classList.remove('hidden');
       this.awaitingChoice = true;
       this.render();
-    }, 400);
+    }, 600);
 
     // Notify
     $('chatBadge').classList.remove('hidden');
@@ -587,24 +627,38 @@ const Game = {
     // Result narration
     setTimeout(() => {
       this.appendChat('npc', `<b>${order.npc.name}:</b> ${opt.result}`);
-      const fare = this.computeFare();
-      this.appendChat('system', `🪙 Tarif diterima: <b>+${fmtRp(fare)}</b> (cuaca/jam)`);
-      this.applyEffects({ saldo: fare }, { skipChecks: true });
+      // NPC mood-based emotional reaction
+      const moodSet = MOODS[order.npc.mood] || MOODS.chill;
+      const score = (opt.eff.saldo ?? 0) / 1000
+                  + (opt.eff.rating ?? 0) * 8
+                  + (opt.eff.baterai ?? 0) * 0.15
+                  + (opt.eff.bensin ?? 0) * 0.15;
+      const isGood = score >= 0;
+      setTimeout(() => {
+        const flavor = pick(isGood ? moodSet.good : moodSet.bad);
+        this.appendChat('npc', `<b>${order.npc.name}:</b> ${flavor}`);
+      }, 500);
 
-      // Tip chance — based on rating
-      if (this.state.rating >= 4.5 && Math.random() < 0.30) {
-        const tip = (rand(7) + 2) * 1000; // 2-8k
-        setTimeout(() => {
-          this.appendChat('system', `💸 Customer kasih tip: <b>+${fmtRp(tip)}</b>`);
-          this.applyEffects({ saldo: tip }, { skipChecks: true });
-        }, 600);
-      }
+      const fare = this.computeFare();
+      setTimeout(() => {
+        this.appendChat('system', `🪙 Tarif diterima: <b>+${fmtRp(fare)}</b> (cuaca/jam)`);
+        this.applyEffects({ saldo: fare }, { skipChecks: true });
+
+        // Tip chance — based on rating
+        if (this.state.rating >= 4.5 && Math.random() < 0.30) {
+          const tip = (rand(7) + 2) * 1000; // 2-8k
+          setTimeout(() => {
+            this.appendChat('system', `💸 Customer kasih tip ekstra: <b>+${fmtRp(tip)}</b>`);
+            this.applyEffects({ saldo: tip }, { skipChecks: true });
+          }, 600);
+        }
+      }, 1100);
 
       // End order after a beat — then run checks
       setTimeout(() => {
         this.endOrder();
         this.runChecks();
-      }, 1200);
+      }, 2200);
     }, 700);
   },
 
