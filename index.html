@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TITIK JEMPUT — Ojol Survival Sim</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ============ STUDIO SPLASH ============ -->
+  <div id="splash" class="overlay splash-overlay">
+    <div class="studio-logo">
+      <span class="studio-text">@farhandwisusilo</span>
+      <span class="studio-tag">— a tiny studio —</span>
+    </div>
+  </div>
+
+  <!-- ============ MAIN MENU ============ -->
+  <div id="mainMenu" class="overlay menu-overlay hidden">
+    <div class="menu-bg-grid"></div>
+    <div class="menu-content">
+      <h1 class="game-title">
+        <span class="title-line title-1">TITIK</span>
+        <span class="title-line title-2">JEMPUT</span>
+      </h1>
+      <p class="game-subtitle">Simulator Ojol Survival // Jakarta Edition</p>
+
+      <div class="menu-buttons">
+        <button id="btnNewGame" class="menu-btn primary">
+          <span class="btn-emoji">🛵</span>
+          <span class="btn-label">Mulai Narik</span>
+          <span class="btn-sub">New Game</span>
+        </button>
+        <button id="btnContinue" class="menu-btn secondary hidden">
+          <span class="btn-emoji">📲</span>
+          <span class="btn-label">Lanjut Narik</span>
+          <span class="btn-sub">Continue</span>
+        </button>
+      </div>
+
+      <div class="menu-footer">
+        <p>Pencet tombol, jalan rezeki. Gas ngab.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PHONE / GAME ============ -->
+  <div id="phone" class="phone hidden">
+    <div class="phone-notch"><span class="notch-dot"></span></div>
+
+    <!-- Top status bar -->
+    <header class="status-bar">
+      <div class="stat" data-stat="saldo">
+        <span class="stat-icon">💰</span>
+        <span class="stat-label">Saldo</span>
+        <span class="stat-value" id="statSaldo">Rp 50.000</span>
+      </div>
+      <div class="stat" data-stat="baterai">
+        <span class="stat-icon">🔋</span>
+        <span class="stat-label">Bat</span>
+        <span class="stat-value" id="statBaterai">100%</span>
+      </div>
+      <div class="stat" data-stat="bensin">
+        <span class="stat-icon">⛽</span>
+        <span class="stat-label">Gas</span>
+        <span class="stat-value" id="statBensin">100%</span>
+      </div>
+      <div class="stat" data-stat="rating">
+        <span class="stat-icon">⭐</span>
+        <span class="stat-label">Rate</span>
+        <span class="stat-value" id="statRating">5.0</span>
+      </div>
+    </header>
+
+    <!-- Mini info row -->
+    <div class="info-row">
+      <span id="infoDay">Hari 1</span>
+      <span id="infoOrder">Order #0</span>
+      <span id="infoWeather">☀️ Cerah</span>
+      <span id="infoTime">🌅 Pagi</span>
+    </div>
+
+    <!-- Tab Screens -->
+    <main class="screen-area" id="screenArea">
+      <!-- NARIK / RADAR -->
+      <section class="screen active" id="screenNarik">
+        <div class="radar-wrap">
+          <div class="radar">
+            <div class="radar-sweep"></div>
+            <div class="radar-grid"></div>
+            <div class="radar-blip blip-1"></div>
+            <div class="radar-blip blip-2"></div>
+            <div class="radar-blip blip-3"></div>
+            <div class="radar-center">🛵</div>
+          </div>
+          <p class="radar-status" id="radarStatus">Standby. Klik tombol di bawah buat cari orderan.</p>
+          <button id="btnCariOrderan" class="big-btn">CARI ORDERAN</button>
+          <p class="radar-tip">Tips: Mantengin Baterai & Bensin biar gak masuk Status Darurat.</p>
+        </div>
+      </section>
+
+      <!-- CHAT -->
+      <section class="screen" id="screenChat">
+        <div class="chat-header">
+          <div class="chat-avatar" id="chatAvatar">🛵</div>
+          <div class="chat-meta">
+            <div class="chat-name" id="chatName">Inbox Kosong</div>
+            <div class="chat-status" id="chatStatus">belum ada orderan masuk</div>
+          </div>
+        </div>
+        <div class="chat-body" id="chatBody">
+          <div class="chat-empty">
+            <p>📭 Inbox masih sepi.</p>
+            <p>Buka tab <b>Narik</b> dulu, klik <b>Cari Orderan</b>.</p>
+          </div>
+        </div>
+        <div class="chat-actions" id="chatActions">
+          <button id="btnAskAI" class="ai-btn hidden">🤖 Tanya AI <span class="ai-cost">-15% Bat</span></button>
+          <div class="choice-buttons hidden" id="choiceButtons">
+            <button class="choice-btn" id="choiceA" data-choice="A"></button>
+            <button class="choice-btn" id="choiceB" data-choice="B"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- WARKOP / SHOP -->
+      <section class="screen" id="screenWarkop">
+        <div class="warkop-header">
+          <h2>☕ Warkop Pak Slamet</h2>
+          <p class="warkop-sub">"Ngopi dulu ngab, mahal dikit gpp"</p>
+        </div>
+        <div class="shop-list">
+          <div class="shop-item">
+            <div class="shop-icon">⛽</div>
+            <div class="shop-info">
+              <div class="shop-name">Bensin Eceran 1L</div>
+              <div class="shop-desc">Bensin +35%</div>
+            </div>
+            <button class="shop-buy" data-shop="bensin1">Rp 12.000</button>
+          </div>
+          <div class="shop-item">
+            <div class="shop-icon">⛽⛽</div>
+            <div class="shop-info">
+              <div class="shop-name">Bensin Full Tank</div>
+              <div class="shop-desc">Bensin +80%</div>
+            </div>
+            <button class="shop-buy" data-shop="bensinFull">Rp 25.000</button>
+          </div>
+          <div class="shop-item">
+            <div class="shop-icon">🔌</div>
+            <div class="shop-info">
+              <div class="shop-name">Numpang Ngecas 15 menit</div>
+              <div class="shop-desc">Baterai +30%</div>
+            </div>
+            <button class="shop-buy" data-shop="cas1">Rp 8.000</button>
+          </div>
+          <div class="shop-item">
+            <div class="shop-icon">⚡</div>
+            <div class="shop-info">
+              <div class="shop-name">Cas Sampe Penuh + Kopi</div>
+              <div class="shop-desc">Baterai +70%, Rating +0.1</div>
+            </div>
+            <button class="shop-buy" data-shop="cas2">Rp 18.000</button>
+          </div>
+          <div class="shop-item">
+            <div class="shop-icon">🍜</div>
+            <div class="shop-info">
+              <div class="shop-name">Indomie Telor</div>
+              <div class="shop-desc">Rating +0.2 (mood naik)</div>
+            </div>
+            <button class="shop-buy" data-shop="mie">Rp 10.000</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Tab Bar -->
+    <nav class="tab-bar">
+      <button class="tab-btn active" data-tab="screenNarik">
+        <span class="tab-icon">📡</span><span class="tab-label">Narik</span>
+      </button>
+      <button class="tab-btn" data-tab="screenChat">
+        <span class="tab-icon">💬</span><span class="tab-label">Chat</span>
+        <span class="tab-badge hidden" id="chatBadge">!</span>
+      </button>
+      <button class="tab-btn" data-tab="screenWarkop">
+        <span class="tab-icon">☕</span><span class="tab-label">Warkop</span>
+      </button>
+    </nav>
+
+    <!-- Floating change feed -->
+    <div id="floatFeed" class="float-feed"></div>
+  </div>
+
+  <!-- ============ CRISIS MODAL ============ -->
+  <div id="crisisModal" class="overlay modal-overlay hidden">
+    <div class="modal crisis-modal">
+      <div class="modal-icon" id="crisisIcon">⚠️</div>
+      <h2 id="crisisTitle">Status Darurat!</h2>
+      <p id="crisisText">Sesuatu gawat terjadi.</p>
+      <div class="modal-buttons">
+        <button id="crisisA" class="modal-btn"></button>
+        <button id="crisisB" class="modal-btn"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ GAME OVER MODAL ============ -->
+  <div id="gameOverModal" class="overlay modal-overlay hidden">
+    <div class="modal gameover-modal">
+      <div class="modal-icon">💀</div>
+      <h2 id="goTitle">GAME OVER</h2>
+      <p id="goText">...</p>
+      <div class="go-stats">
+        <div><span>Hari:</span> <b id="goDay">0</b></div>
+        <div><span>Order Selesai:</span> <b id="goOrders">0</b></div>
+        <div class="highlight"><span>High Score (Saldo):</span> <b id="goSaldo">Rp 0</b></div>
+      </div>
+      <button id="btnBackMenu" class="big-btn">Balik ke Menu</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
