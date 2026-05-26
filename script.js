@@ -624,10 +624,10 @@ const Game = {
     // Effect
     this.applyEffects(opt.eff, { skipChecks: true });
 
-    // Result narration
+    // Result narration (third-person, NOT NPC speech)
     setTimeout(() => {
-      this.appendChat('npc', `<b>${order.npc.name}:</b> ${opt.result}`);
-      // NPC mood-based emotional reaction
+      this.appendChat('narration', `📖 ${opt.result}`);
+      // NPC mood-based emotional reaction (this IS their voice)
       const moodSet = MOODS[order.npc.mood] || MOODS.chill;
       const score = (opt.eff.saldo ?? 0) / 1000
                   + (opt.eff.rating ?? 0) * 8

@@ -493,6 +493,18 @@ body {
   text-align: center;
   max-width: 95%;
 }
+.chat-msg.narration {
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid var(--neon-dim);
+  color: var(--text);
+  font-style: italic;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  max-width: 95%;
+  margin: 2px 0;
+}
 .chat-msg.ai {
   align-self: flex-start;
   background: linear-gradient(135deg, #1a0d3d, #2a1455);
